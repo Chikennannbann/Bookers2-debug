@@ -6,6 +6,7 @@ class FavoritesController < ApplicationController
     favorite.save
     redirect_back(fallback_location: books_path)
     # fallbackで戻れなかった時用のパスを指定
+    # redirect_to request.refererも同じ
   end
 
   def destroy
