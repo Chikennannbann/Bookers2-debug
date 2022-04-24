@@ -1,9 +1,12 @@
 class BooksController < ApplicationController
-  before_action :ensure_current_user, only: [:edit]
+  before_action :ensure_current_user, only: [:edit, :update, :destroy]
+  # edit,update,destroyアクション内の@book = Book.find(params[:id])は削除しても作動する。
+  # そのアクションが呼び出される前にensure_current_userの中に定義されているものが作動するから。
 
   def show
     @book = Book.find(params[:id])
     @booknew = Book.new
+    # インスタンス変数を置かず、直接部分テンプレートにBook.newを渡すことでも解決
   end
 
   def index
@@ -23,11 +26,9 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "You have updated book successfully."
     else
@@ -36,7 +37,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
   end
