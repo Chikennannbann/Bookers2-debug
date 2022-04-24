@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @booknew = Book.new
+    @book_comment = BookComment.new
     # インスタンス変数を置かず、直接部分テンプレートにBook.newを渡すことでも解決
   end
 
