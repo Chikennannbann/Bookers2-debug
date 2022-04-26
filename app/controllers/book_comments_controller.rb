@@ -11,8 +11,9 @@ class BookCommentsController < ApplicationController
   end
 
   def destroy
-    # BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
-    BookComment.find(params[:id]).destroy
+    BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
+    # BookComment.find(params[:id]).destroyでもok
+    # find_byはidとbook_idで探す。URIパターンがそうだからこのように書いていると考えられる。
     redirect_back(fallback_location: book_path(params[:book_id]))
   end
 
