@@ -50,6 +50,12 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
 
+  def all_destroy
+    @group = Group.find(params[:group_id])
+    @group.destroy
+    redirect_to groups_path
+  end
+
   private
 
   def group_params
