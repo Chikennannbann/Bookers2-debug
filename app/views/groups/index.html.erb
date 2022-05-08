@@ -21,7 +21,7 @@
   <tbody>
     <% @groups.each do |f| %>
       <tr>
-        <td>image</td>
+        <td><%= image_tag f.get_image, size:'50x50' %></td>
         <td><%= link_to f.name, group_path(f) %></td>
         <td><%= f.introduction %></td>
         <td>
