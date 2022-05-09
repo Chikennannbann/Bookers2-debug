@@ -14,8 +14,9 @@
   <thead>
     <tr>
       <th colspan="1"></th>
-      <th>group name</th>
+      <th>group</th>
       <th>introduction</th>
+      <th>number</th>
     </tr>
   </thead>
   <tbody>
@@ -24,9 +25,11 @@
         <td><%= image_tag f.get_image, size:'50x50' %></td>
         <td><%= link_to f.name, group_path(f) %></td>
         <td><%= f.introduction %></td>
+        <td><%= f.users.count %></td>
         <td>
           <% if f.owner_id == current_user.id %>
           <%= link_to 'Edit', edit_group_path(f), class: "btn btn-sm btn-success" %>
+          <%= link_to 'Destroy', group_all_destroy_path(f), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
           <% end %>
         </td>
       </tr>
