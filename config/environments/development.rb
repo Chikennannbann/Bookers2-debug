@@ -78,7 +78,7 @@ Rails.application.configure do
   # メール送信に失敗したときにエラーを出すかどうか
   config.action_mailer.delivery_method = :smtp
   # メール送信方法がsmtp
-  config.action_mailer.smtp_setting = {
+  config.action_mailer.smtp_settings = {
   # smtpの詳細設定
     port: 587,
     address: 'smtp.gmail.com',
