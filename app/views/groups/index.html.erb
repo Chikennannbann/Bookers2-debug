@@ -17,6 +17,7 @@
       <th>group</th>
       <th>introduction</th>
       <th>number</th>
+      <th colspan="5"></th>
     </tr>
   </thead>
   <tbody>
@@ -29,7 +30,6 @@
         <td>
           <% if f.owner_id == current_user.id %>
           <%= link_to 'Edit', edit_group_path(f), class: "btn btn-sm btn-success" %>
-          <%= link_to 'Destroy', group_all_destroy_path(f), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
           <% end %>
         </td>
       </tr>
