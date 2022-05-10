@@ -80,15 +80,15 @@ Rails.application.configure do
   # メール送信方法がsmtp
   config.action_mailer.smtp_settings = {
   # smtpの詳細設定
-    port: 587,
-    address: 'smtp.gmail.com',
-    domain: 'gmail.com',
-    user_name: '',
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'gmail.com',
+    user_name:            ENV['MAIL_ADDRESS'],
     # メール送信に使用するgmailアカウント(mail address)
-    password: '',
+    password:             ENV['MAIL_PASSWORD'],
     # メール送信に使用するgmailパスワード
     # 個人情報なので保存方法に要注意！！
-    authentication: 'login',
+    authentication:       'plain',
     enable_starttls_auto: true
   }
 
